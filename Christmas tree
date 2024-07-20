@@ -1,0 +1,61 @@
+#define t   50
+#define t2  200
+#define t3  400
+
+int leds[] = {2, 3, 4, 5, 6, 7, 8, };
+int total_leds = 7;
+
+
+void setup() {
+  Serial.begin(115200);
+  for (int i = 0; i < total_leds; i++) {
+    pinMode(leds[i], OUTPUT);
+  }
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  ledsOn();
+  delay(t2);
+  ledsOff();
+  delay(t2);
+  links();
+  delay(t2);
+  ledsOff();
+}
+
+
+
+//TURN ON ALL LEDs
+void ledsOn() {
+  for (int i = 0; i < total_leds; i++) {
+    digitalWrite(leds[i], HIGH);
+  }
+}
+
+//TURN OFF ALL LEDs
+void ledsOff() {
+  for (int i = 0; i < total_leds; i++) {
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+void links() {
+  digitalWrite(1, HIGH);
+  delay(t3);
+  digitalWrite(3, HIGH);
+  delay(t3);
+  digitalWrite(5, HIGH);
+  delay(t3);
+  digitalWrite(2, HIGH);
+  delay(t3);
+  digitalWrite(4, HIGH);
+  delay(t3);
+  digitalWrite(6, HIGH);
+  delay(t3);
+  digitalWrite(7, HIGH);
+  delay(t3);
+  delay(t3);
+
+}
